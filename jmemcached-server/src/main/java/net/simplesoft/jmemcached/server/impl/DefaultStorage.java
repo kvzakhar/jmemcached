@@ -48,7 +48,6 @@ class DefaultStorage implements Storage {
 
     @Override
     public Status put(String key, Long ttl, byte[] data) {
-        System.out.println("Storage put ");
         StorageItem oldItem = this.map.put(key, new StorageItem(key, ttl, data));
         return oldItem == null ? Status.ADDED : Status.REPLACED;
     }
